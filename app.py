@@ -88,7 +88,7 @@ if st.button("📡 Fetch & Analyze Flights"):
 
     # Create simulated delay label: velocity < 100 → delayed=1 else 0
     if "delay" not in full_df.columns:
-        full_df["delay"] = (full_df["velocity"] < 100) & (full_df["geo_altitude"] > 1000)
+        full_df["delay"] = (full_df["velocity"] >= 100) & (full_df["geo_altitude"] > 1000)
     full_df = full_df.dropna(subset=["delay"])
 
     X = full_df[["velocity", "geo_altitude"]]
