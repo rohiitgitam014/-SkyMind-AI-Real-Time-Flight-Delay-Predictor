@@ -92,7 +92,7 @@ if st.button("📡 Fetch & Analyze Flights"):
         full_df["delay"].dropna(inplace = True)
 
     X = full_df[["velocity", "geo_altitude"]]
-    y = full_df["delay"].
+    y = full_df["delay"]
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
