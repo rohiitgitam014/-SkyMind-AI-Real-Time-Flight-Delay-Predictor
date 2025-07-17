@@ -112,7 +112,7 @@ if st.button("📡 Fetch & Analyze Flights"):
     X_live = latest_df[["velocity", "geo_altitude"]]
     predictions = model.predict(X_live)
     latest_df["Predicted Delay"] = predictions
-    latest_df["Predicted Delay"] = latest_df["Predicted Delay"].map({0: "Not Delayed", 1: "Delayed"})
+    latest_df["Predicted Delay"] = latest_df["Predicted Delay"].map({1: "Not Delayed", 0: "Delayed"})
     latest_df["Prediction Timestamp"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     st.subheader(f"🛫 Predicted Flight Delays for {country} (Latest Fetch)")
     st.dataframe(latest_df[[
