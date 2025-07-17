@@ -57,7 +57,6 @@ def fetch_flights_by_country(country):
         "spi", "position_source"
     ])
     filtered = df[df["origin_country"] == country].copy()
-    filtered["timestamp"] = datetime.datetime.now()
     return filtered
 
 if st.button("📡 Fetch & Analyze Flights"):
