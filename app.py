@@ -4,7 +4,7 @@ import requests
 import datetime
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import r2_score
 from datetime import datetime
 
 st.set_page_config(page_title="🛫 SkyMind AI: Real-Time Flight Delay Predictor", layout="wide")
@@ -100,8 +100,8 @@ if st.button("📡 Fetch & Analyze Flights"):
     model.fit(X_train, y_train)
 
     y_pred = model.predict(X_test)
-    acc = accuracy_score(y_test, y_pred)
-    st.write(f"### Model accuracy on historical data: {acc:.2%}")
+    r2score = r2_score(y_test, y_pred)
+    st.write(f"### Model accuracy on historical data: {r2score:.2%}")
 
     # Predict delay on latest fetched flights
     latest_df = flights_df.dropna(subset=["velocity", "geo_altitude"])
